@@ -12,10 +12,10 @@ export function ContactSection() {
         transition={{ duration: 0.8 }}
       >
         <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tighter uppercase text-[#D6FF00]" style={{ fontFamily: "'Fira Code', monospace" }}>
-          Let's Build Something Great
+          Let&apos;s Build Something Great
         </h1>
         <p className="text-xl md:text-2xl text-neutral-400 mb-16 max-w-2xl">
-          I'm currently available for new projects, opportunities, and collaborations. Let's discuss how we can work together.
+          I&apos;m currently available for new projects, opportunities, and collaborations. Let&apos;s discuss how we can work together.
         </p>
 
         <div className="grid md:grid-cols-[1fr_1fr] gap-12">
@@ -64,7 +64,7 @@ export function ContactSection() {
           >
             <h3 className="text-3xl font-bold mb-6 text-white">Send a Message</h3>
             <p className="text-neutral-400 mb-8 text-lg">
-              Prefer writing? Reach out to me directly and I'll get back to you as soon as possible.
+              Prefer writing? Reach out to me directly and I&apos;ll get back to you as soon as possible.
             </p>
             <button className="w-full py-4 bg-[#D6FF00] text-black font-bold rounded-xl text-lg hover:scale-[1.02] transition-transform flex justify-center items-center space-x-2">
               <Mail className="w-5 h-5" />

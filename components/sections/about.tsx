@@ -20,9 +20,9 @@ export function AboutSection() {
         <div className="grid md:grid-cols-[2fr_1fr] gap-16">
           {/* Main Content */}
           <div className="space-y-6 text-lg md:text-xl text-neutral-300 leading-relaxed font-sans">
-            <p>Hi, I'm Arnav.</p>
+            <p>Hi, I&apos;m Arnav.</p>
             <p>
-              I'm a developer focused on building modern web applications, AI-powered tools, mobile-first experiences, and digital products.
+              I&apos;m a developer focused on building modern web applications, AI-powered tools, mobile-first experiences, and digital products.
             </p>
             <p>
               I enjoy turning ideas into functional products with clean design, great user experience, and scalable architecture.
