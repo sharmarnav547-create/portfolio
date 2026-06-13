@@ -68,7 +68,7 @@ export function AboutSection() {
               transition={{ delay: 0.4 }}
               className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#D6FF00]/50 transition-colors"
             >
-              <div className="text-2xl font-bold text-white mb-1">Class 11</div>
+              <div className="text-2xl font-bold text-white mb-1">IIT</div>
               <div className="text-sm text-neutral-400 uppercase tracking-widest">Student</div>
             </motion.div>
 
