@@ -27,7 +27,7 @@ export function EducationSection() {
               <div className="p-3 bg-[#D6FF00]/10 rounded-xl text-[#D6FF00]">
                 <BookOpen className="w-8 h-8" />
               </div>
-              <h2 className="text-3xl font-bold text-white">Class 11 Student</h2>
+              <h2 className="text-3xl font-bold text-white">IIT Student</h2>
             </div>
             
             <h3 className="text-xl font-bold mb-6 text-neutral-300">Learning Areas:</h3>
