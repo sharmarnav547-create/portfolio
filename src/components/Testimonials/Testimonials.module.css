@@ -1,0 +1,99 @@
+.testimonials-section {
+  position: relative;
+  background: var(--bg-primary);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(60px, 10vh, 120px) 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-wrapper {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 40s linear infinite;
+  gap: clamp(16px, 3vw, 30px);
+  padding: 20px 0;
+}
+
+.marquee-wrapper:hover {
+  animation-play-state: paused;
+}
+
+.testimonial-card {
+  width: clamp(280px, 80vw, 400px);
+  background: var(--bg-secondary);
+  border: 2px solid var(--accent-orange);
+  border-radius: 20px;
+  padding: clamp(20px, 4vw, 40px) clamp(16px, 3vw, 30px);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  white-space: normal;
+}
+
+.testimonial-card:hover {
+  border-color: var(--accent-orange);
+  box-shadow: 0 10px 30px rgba(253, 78, 2, 0.3);
+  transform: translateY(-5px);
+}
+
+.rating {
+  color: var(--accent-orange);
+  margin-bottom: 20px;
+  display: flex;
+  gap: 4px;
+}
+
+.quote {
+  color: var(--text-primary);
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  line-height: 1.6;
+  font-style: italic;
+  margin-bottom: 30px;
+  flex: 1;
+}
+
+.client-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.client-avatar {
+  width: clamp(40px, 8vw, 50px);
+  height: clamp(40px, 8vw, 50px);
+  border-radius: 50%;
+  background: var(--bg-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: var(--accent-orange);
+  border: 2px solid var(--accent-orange);
+}
+
+.client-details h4 {
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+}
+
+.client-details p {
+  color: var(--text-secondary);
+  font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .testimonials-section {
+    min-height: auto;
+  }
+}

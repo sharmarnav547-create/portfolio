@@ -1,0 +1,109 @@
+.funnel-section {
+  position: relative;
+  background: var(--bg-primary);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(60px, 10vh, 120px) 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.funnel-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(30px, 5vw, 60px);
+  width: 100%;
+}
+
+.funnel-info {
+  flex: 1;
+  max-width: 500px;
+}
+
+.funnel-visual {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  width: 100%;
+}
+
+.funnel-stage {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--neutral-white);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+  position: relative;
+  width: 100%;
+  padding: clamp(16px, 2vw, 24px);
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  margin-bottom: 2px;
+}
+
+.stage-0 { width: 100%; clip-path: polygon(0 0, 100% 0, 94% 100%, 6% 100%); background: var(--accent-pink); }
+.stage-1 { width: 88%; clip-path: polygon(0 0, 100% 0, 93% 100%, 7% 100%); background: var(--accent-orange); color: var(--neutral-black); }
+.stage-2 { width: 76%; clip-path: polygon(0 0, 100% 0, 92% 100%, 8% 100%); background: var(--accent-purple); }
+.stage-3 { width: 64%; clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%); background: var(--text-secondary); }
+.stage-4 { width: 52%; clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%); background: var(--accent-lime); color: var(--neutral-black); }
+
+.funnel-stage:hover, .funnel-stage.active {
+  filter: brightness(1.15);
+  transform: translateX(10px);
+}
+
+.funnel-stage.active {
+  /* Box shadow creates a glow effect around the active stage since outline can be clipped */
+  filter: brightness(1.2) drop-shadow(0 0 10px rgba(226, 252, 55, 0.5));
+}
+
+.data-flow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-lime), var(--accent-pink));
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--bg-primary);
+  border-radius: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 900px) {
+  .funnel-container {
+    flex-direction: column;
+  }
+  .funnel-info {
+    text-align: center;
+    max-width: 100%;
+  }
+  .funnel-stage {
+    /* Full width on mobile so they fit and clip path looks ok */
+    width: 100% !important;
+    clip-path: polygon(0 0, 100% 0, 96% 100%, 4% 100%) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .funnel-section {
+    min-height: auto;
+  }
+}
