@@ -29,10 +29,9 @@ const Footer = () => {
 
   const navLinks = [
     { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
     { label: "Services", href: "#services" },
-    { label: "Process", href: "#process" },
-    { label: "Case Studies", href: "#case-studies" },
-    { label: "Blog", href: "#blog" },
+    { label: "Work", href: "#work" },
     { label: "Contact", href: "#contact" },
   ];
 

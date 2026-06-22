@@ -81,6 +81,7 @@ export const Footer = ({
                       key={index}
                       className="hover:text-zinc-950 duration-300 hover:font-semibold"
                       href={link.href}
+                      data-route={link.href.replace('#', '')}
                     >
                       {link.label}
                     </a>
