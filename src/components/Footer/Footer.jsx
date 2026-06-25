@@ -22,7 +22,7 @@ const Footer = () => {
     },
     {
       icon: <Mail className="w-6 h-6" />,
-      href: "mailto:tanu@pitchbrands.in",
+      href: "mailto:hello@pitchbrands.in",
       label: "Email",
     },
   ];
@@ -31,7 +31,7 @@ const Footer = () => {
     { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
     { label: "Services", href: "#services" },
-    { label: "Work", href: "#work" },
+    { label: "Work & blog", href: "#work" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -43,8 +43,8 @@ const Footer = () => {
           <p>We build attention, growth, authority, and revenue. The world's most advanced digital agency.</p>
           <div className="flex flex-col gap-1 text-sm mt-4 text-zinc-500">
             <p><strong>Address:</strong> sco 211, second floor, Pitchbrands office, Omaxe World Street, Sector 79, 121101, Faridabad</p>
-            <p><strong>Phone:</strong> +91 74834 11755, +91 73030 89104</p>
-            <p><strong>Email:</strong> tanu@pitchbrands.in</p>
+            <p><strong>Phone:</strong> +91 73030 89104</p>
+            <p><strong>Email:</strong> hello@pitchbrands.in</p>
           </div>
         </div>
       }
