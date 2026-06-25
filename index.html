@@ -383,6 +383,7 @@ footer{background:var(--plum-ink-2);color:var(--cream-on-dark);padding:clamp(56p
 
 /* ---------- hero layout + spinning asterisk ---------- */
 .hero-grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:center;justify-items:center}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
 .hero-art{position:relative;width:100%;max-width:380px;margin-inline:auto;aspect-ratio:1/1}
 .hero-art .disc{position:absolute;inset:0;border-radius:50%;background:var(--yellow);border:3px solid var(--black);box-shadow:12px 14px 0 rgba(14,14,14,.16)}
 .hero-art .bigstar-svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 13s linear infinite}
@@ -463,11 +464,16 @@ header.nav.scrolled{background:rgba(242,242,242,.88)}
 /* ---------- responsive ---------- */
 @media(max-width:980px){
   .funnel-layout{grid-template-columns:1fr;gap:30px}
+  .funnel-layout > .funnel-text { order: 2; }
+  .funnel-layout > .funnel-vis { order: 1; }
   .feat{grid-template-columns:1fr}
   .mv{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr;gap:34px}
   .foot-top{grid-template-columns:1fr 1fr}
   .hero-grid{grid-template-columns:1fr;gap:10px}
+  .about-grid{grid-template-columns:1fr}
+  .about-grid > div:nth-child(1) { order: 2; }
+  .about-grid > div:nth-child(2) { order: 1; }
   .hero-art{max-width:320px;margin-top:8px}
 }
 @media(max-width:760px){
@@ -481,6 +487,7 @@ header.nav.scrolled{background:rgba(242,242,242,.88)}
   .bc-back{grid-template-columns:1fr}
   .bc-svcs{border-left:none;padding-left:0;border-top:1.5px solid var(--line-2);padding-top:14px}
   .foot-top{grid-template-columns:1fr}
+  .row2, .modal .row2{grid-template-columns:1fr}
   .hero-meta{gap:20px}
   .hero-divider{display:none}
 }
@@ -655,7 +662,7 @@ header.nav.scrolled{background:rgba(242,242,242,.88)}
   </div>
 
   <section class="section">
-    <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center">
+    <div class="wrap about-grid">
       <div class="rv">
         <span class="eyebrow">What is PitchBrands?</span>
         <h2 style="font-size:clamp(28px,4vw,46px);margin:18px 0 16px">Not your typical marketing agency.</h2>
@@ -791,11 +798,11 @@ header.nav.scrolled{background:rgba(242,242,242,.88)}
         <!-- form -->
         <div class="rv">
           <form class="form" id="contactForm" novalidate>
-            <div class="row2" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div class="row2">
               <div class="field"><label for="cf-name">Your name</label><input id="cf-name" name="name" required placeholder="Tanu Mittal"></div>
               <div class="field"><label for="cf-brand">Brand / website</label><input id="cf-brand" name="brand" placeholder="@yourbrand or site.com"></div>
             </div>
-            <div class="row2" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div class="row2">
               <div class="field"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" required placeholder="you@brand.com"></div>
               <div class="field"><label for="cf-phone">Phone</label><input id="cf-phone" name="phone" placeholder="+91"></div>
             </div>
