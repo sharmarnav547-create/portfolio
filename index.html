@@ -148,11 +148,12 @@ main{padding-top:0}
 .blob.b3{width:340px;height:340px;background:radial-gradient(circle,var(--coral),transparent 70%);top:40%;left:46%;opacity:.3;animation:drift1 26s ease-in-out infinite}
 @keyframes drift1{0%,100%{transform:translate(0,0)}50%{transform:translate(-40px,40px)}}
 @keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(50px,-30px)}}
-.hero h1{font-size:clamp(44px,8.4vw,108px);max-width:15ch}
+.hero{text-align:center;display:flex;flex-direction:column;align-items:center}
+.hero h1{font-size:clamp(44px,8.4vw,108px);max-width:18ch;margin:0 auto}
 .hero h1 .go{color:var(--mulberry)}
-.hero .sub{margin-top:26px;font-size:clamp(17px,2.1vw,21px);max-width:54ch;color:#5a4650}
-.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
-.hero-meta{display:flex;flex-wrap:wrap;gap:28px;margin-top:54px;align-items:center}
+.hero .sub{margin-top:26px;font-size:clamp(17px,2.1vw,21px);max-width:54ch;color:#5a4650;margin-left:auto;margin-right:auto}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;justify-content:center}
+.hero-meta{display:flex;flex-wrap:wrap;gap:28px;margin-top:54px;align-items:center;justify-content:center}
 .hero-stat .n{font-family:var(--font-display);font-weight:600;font-size:clamp(30px,4vw,46px);color:var(--mulberry);line-height:1}
 .hero-stat .l{font-size:13px;color:var(--pb-muted);font-weight:600;margin-top:4px;max-width:18ch}
 .hero-divider{width:1px;height:46px;background:var(--line-2)}
@@ -381,7 +382,7 @@ footer{background:var(--plum-ink-2);color:var(--cream-on-dark);padding:clamp(56p
 .scroll-prog{position:fixed;top:0;left:0;height:4px;width:0;z-index:300;background:linear-gradient(90deg,var(--pink),var(--orange),var(--yellow))}
 
 /* ---------- hero layout + spinning asterisk ---------- */
-.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:36px;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:center;justify-items:center}
 .hero-art{position:relative;width:100%;max-width:380px;margin-inline:auto;aspect-ratio:1/1}
 .hero-art .disc{position:absolute;inset:0;border-radius:50%;background:var(--yellow);border:3px solid var(--black);box-shadow:12px 14px 0 rgba(14,14,14,.16)}
 .hero-art .bigstar-svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 13s linear infinite}
@@ -522,7 +523,7 @@ header.nav.scrolled{background:rgba(242,242,242,.88)}
   <div class="hero">
     <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
     <div class="wrap hero-grid">
-      <div class="hero-text">
+      <div class="hero-text" style="display:flex;flex-direction:column;align-items:center">
         <span class="eyebrow rv in">Gen-Z–first creative + performance studio · Faridabad</span>
         <h1 class="rv in rv-d1" style="margin-top:22px">We make brands <span class="grad-txt serif-it">go viral.</span><br>From invisible to iconic — <span class="go">that's the brief.</span></h1>
         <p class="sub rv in rv-d2">Lowkey obsessed with making brands win. We turn forgettable feeds into cultural moments — content that connects, ads that convert, and branding that sticks.</p>
