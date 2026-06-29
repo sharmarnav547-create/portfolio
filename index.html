@@ -40,7 +40,7 @@
   /* ===== Doors-style pop palette (user-specified hexes) ===== */
   --yellow:#FCF300; --orange:#F15C06; --pink:#F20574; --white:#F2F2F2; --black:#0E0E0E;
   --ink:#1C1A20;
-  --pb-muted:rgba(28,26,32,.65);
+  --pb-muted:rgba(28,26,32,.78);
   --cream:#F2F2F2; --cream-2:#FFFFFF; --cream-3:#E7E6E1;
   --peach:#FDE3EE; --peach-soft:#FCF300;            /* bright-yellow pop section */
   --line:#E1E0DA; --line-2:#0E0E0E;
@@ -477,10 +477,10 @@ header.nav.scrolled{background:rgba(242,242,242,.88)}
   .hero-art{max-width:320px;margin-top:8px}
 }
 @media(max-width:760px){
-  .nav-links,.nav-cta .btn{display:none}
+  .nav-cta .btn{display:none}
   .burger{display:flex}
   .nav-links{position:fixed;inset:64px 14px auto 14px;background:var(--cream-2);border:1.5px solid var(--line);border-radius:var(--r-lg);flex-direction:column;align-items:stretch;padding:14px;gap:4px;box-shadow:0 30px 60px -30px rgba(42,20,31,.4);transform:translateY(-12px);opacity:0;pointer-events:none;transition:.3s var(--ease);z-index:95}
-  .nav-links.open{transform:none;opacity:1;pointer-events:auto;display:flex}
+  .nav-links.open{transform:none;opacity:1;pointer-events:auto}
   .nav-links a{padding:13px 16px;font-size:16px}
   .nav-links .btn{display:inline-flex;justify-content:center;margin-top:6px}
   .feat .vis{min-height:230px}
@@ -498,6 +498,52 @@ header.nav.scrolled{background:rgba(242,242,242,.88)}
   *{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   .rv{opacity:1;transform:none}
 }
+
+/* =========================================================
+   UI/UX PERFORMANCE, ACCESSIBILITY, AND FORM STYLING
+   ========================================================= */
+.btn, .nav-links a, .logo, .burger, .stage, .svc-card, .tst, .blog-card, .cs-card, .brand-chip, .ci {
+  transition: transform 0.22s var(--ease), box-shadow 0.22s var(--ease), border-color 0.18s ease, background 0.18s ease, color 0.18s ease, opacity 0.18s ease;
+  will-change: transform;
+}
+.cre-row, .banner-track, .hero-art .bigstar-svg {
+  will-change: transform;
+}
+.btn:focus-visible,
+.nav-links a:focus-visible,
+.logo:focus-visible,
+.burger:focus-visible,
+.stage:focus-visible,
+.foot-col a:focus-visible,
+.ci:focus-visible,
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible,
+.modal .close:focus-visible {
+  outline: 3px solid var(--pink) !important;
+  outline-offset: 3px !important;
+  box-shadow: none !important;
+}
+/* Form Validation Error Styles */
+.field.has-error input,
+.field.has-error select,
+.field.has-error textarea {
+  border-color: var(--orange) !important;
+  box-shadow: 4px 4px 0 var(--orange) !important;
+}
+.field-error {
+  color: var(--orange);
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 6px;
+  display: block;
+}
+/* Placeholder styling with proper contrast */
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(28, 26, 32, 0.6) !important;
+  opacity: 1;
+}
 </style>
 </head>
 <body>
@@ -507,7 +553,7 @@ header.nav.scrolled{background:rgba(242,242,242,.88)}
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a class="logo" href="#" data-route="home">
+    <a class="logo" href="#" data-route="home" aria-label="PitchBrands Home">
   <img src="/images/logo.png" alt="PitchBrands Logo" style="height:80px;width:auto;">
 </a>
     <nav class="nav-links" id="navlinks" aria-label="Primary">
@@ -1037,7 +1083,15 @@ function go(route){
   if(!pages[route])route='home';
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById(pages[route]).classList.add('active');
-  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.dataset.route===route));
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    const isActive = a.dataset.route === route;
+    a.classList.toggle('active', isActive);
+    if (isActive) {
+      a.setAttribute('aria-current', 'page');
+    } else {
+      a.removeAttribute('aria-current');
+    }
+  });
   window.scrollTo({top:0,behavior:'instant' in window?'instant':'auto'});
   closeMenu();
   requestAnimationFrame(()=>{revealScan();if(route==='work')requestAnimationFrame(updateWork);});
@@ -1082,10 +1136,19 @@ burger.addEventListener('click',()=>{const o=navlinks.classList.toggle('open');b
    ========================================================= */
 const blogStage=document.getElementById('blogStage'),blogSticky=document.getElementById('blogSticky');
 let workReduced=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+let blogStageHeight = 0;
+let windowHeight = 0;
+
+function cacheWorkDimensions() {
+  if (blogStage) blogStageHeight = blogStage.offsetHeight;
+  windowHeight = window.innerHeight;
+}
+
 function updateWork(){
   if(!document.getElementById('page-work').classList.contains('active')||workReduced)return;
   const rect=blogStage.getBoundingClientRect();
-  const total=blogStage.offsetHeight-window.innerHeight;
+  const total=blogStageHeight-windowHeight;
   let p=total>0?(-rect.top)/total:0; p=Math.max(0,Math.min(1,p));
   const scale=1-p*0.18, opacity=1-p*0.65;
   blogSticky.style.transform=`scale(${scale.toFixed(3)})`;
@@ -1101,7 +1164,12 @@ function updateProgress(){
 }
 let ticking=false;
 window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{onScroll();updateWork();updateProgress();ticking=false;});ticking=true;}},{passive:true});
-window.addEventListener('resize',()=>{updateWork();updateProgress();},{passive:true});
+window.addEventListener('resize',()=>{
+  cacheWorkDimensions();
+  updateWork();
+  updateProgress();
+},{passive:true});
+cacheWorkDimensions();
 updateProgress();
 
 /* =========================================================
@@ -1114,6 +1182,26 @@ function closeModal(){modal.classList.remove('show');document.body.style.overflo
 document.addEventListener('click',e=>{if(e.target.closest('.js-modal')){e.preventDefault();openModal();}});
 modalClose.addEventListener('click',closeModal);
 modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+modal.addEventListener('keydown', e => {
+  if (e.key === 'Tab') {
+    const focusables = modal.querySelectorAll('button, input, select, textarea, [tabindex="0"]');
+    if (focusables.length === 0) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+
+    if (e.shiftKey) {
+      if (document.activeElement === first) {
+        last.focus();
+        e.preventDefault();
+      }
+    } else {
+      if (document.activeElement === last) {
+        first.focus();
+        e.preventDefault();
+      }
+    }
+  }
+});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(modal.classList.contains('show'))closeModal();closeMenu();}});
 // auto-open once, a few seconds after landing on home
 setTimeout(()=>{if(!modalShownAuto&&document.getElementById('page-home').classList.contains('active')){modalShownAuto=true;openModal();}},7000);
@@ -1121,19 +1209,123 @@ setTimeout(()=>{if(!modalShownAuto&&document.getElementById('page-home').classLi
 /* =========================================================
    FORMS  (front-end only — wire to a backend here)
    ========================================================= */
-function handleForm(form,toastId){
-  form.addEventListener('submit',e=>{
-    e.preventDefault();
-    // TODO: send `new FormData(form)` to your email/Formspree/Sheets endpoint:
-    // fetch('https://formspree.io/f/XXXX',{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}})
-    const toast=document.getElementById(toastId);
-    toast.classList.add('show');
-    form.querySelectorAll('input,textarea,select').forEach(f=>f.value='');
-    if(toastId==='modalToast'){setTimeout(closeModal,2600);}
+function validateField(input) {
+  const fieldContainer = input.closest('.field');
+  if (!fieldContainer) return true;
+
+  // Clear existing error message
+  const existingError = fieldContainer.querySelector('.field-error');
+  if (existingError) existingError.remove();
+  fieldContainer.classList.remove('has-error');
+
+  let isValid = true;
+  let errorMessage = '';
+
+  // Required validation check
+  if (input.hasAttribute('required') && !input.value.trim()) {
+    isValid = false;
+    errorMessage = 'This field is required';
+  }
+  // Email format validation check
+  else if (input.type === 'email' && input.value.trim()) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(input.value.trim())) {
+      isValid = false;
+      errorMessage = 'Please enter a valid email address';
+    }
+  }
+
+  if (!isValid) {
+    fieldContainer.classList.add('has-error');
+    const errorEl = document.createElement('span');
+    errorEl.className = 'field-error';
+    errorEl.textContent = errorMessage;
+    fieldContainer.appendChild(errorEl);
+  }
+
+  return isValid;
+}
+
+function setupRealtimeValidation(form) {
+  form.querySelectorAll('input, select, textarea').forEach(input => {
+    input.addEventListener('blur', () => {
+      validateField(input);
+    });
+    input.addEventListener('input', () => {
+      const fieldContainer = input.closest('.field');
+      if (fieldContainer && fieldContainer.classList.contains('has-error')) {
+        validateField(input);
+      }
+    });
   });
 }
-handleForm(document.getElementById('contactForm'),'formToast');
-handleForm(document.getElementById('modalForm'),'modalToast');
+
+function handleForm(form, toastId) {
+  if (!form) return;
+  setupRealtimeValidation(form);
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    let isFormValid = true;
+    form.querySelectorAll('input, select, textarea').forEach(input => {
+      if (!validateField(input)) {
+        isFormValid = false;
+      }
+    });
+
+    if (!isFormValid) {
+      const firstInvalid = form.querySelector('.field.has-error input, .field.has-error select, .field.has-error textarea');
+      if (firstInvalid) firstInvalid.focus();
+      return;
+    }
+
+    const btn = form.querySelector('button[type="submit"]');
+    const originalBtnText = btn.innerHTML;
+
+    // Visual feedback for submitting state
+    btn.disabled = true;
+    btn.style.opacity = '0.75';
+    btn.innerHTML = 'Sending... ✦';
+
+    // Mock network request delay
+    setTimeout(() => {
+      const toast = document.getElementById(toastId);
+      if (toast) {
+        toast.classList.add('show');
+      }
+
+      form.querySelectorAll('input, textarea, select').forEach(f => {
+        f.value = '';
+        const fieldContainer = f.closest('.field');
+        if (fieldContainer) {
+          fieldContainer.classList.remove('has-error');
+          const error = fieldContainer.querySelector('.field-error');
+          if (error) error.remove();
+        }
+      });
+
+      // Restore button
+      btn.disabled = false;
+      btn.style.opacity = '';
+      btn.innerHTML = originalBtnText;
+
+      if (toastId === 'modalToast') {
+        setTimeout(() => {
+          closeModal();
+          if (toast) toast.classList.remove('show');
+        }, 2200);
+      } else {
+        setTimeout(() => {
+          if (toast) toast.classList.remove('show');
+        }, 5000);
+      }
+    }, 1200);
+  });
+}
+
+handleForm(document.getElementById('contactForm'), 'formToast');
+handleForm(document.getElementById('modalForm'), 'modalToast');
 
 /* =========================================================
    CONTINUOUS BANNER on every page (Doors-style marquee)

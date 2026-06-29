@@ -1,0 +1,156 @@
+{
+  "pages": [
+    {
+      "name": "Global Settings",
+      "sections": [
+        {
+          "name": "Branding & Contact",
+          "fields": [
+            { "id": "company_name", "type": "text", "defaultValue": "PitchBrands", "minLength": 2, "characterLimit": 40, "validationRules": "no_html" },
+            { "id": "logo_image", "type": "image", "defaultValue": "/images/logo.png", "aspectRatio": "auto", "allowedFormats": ["webp", "png", "svg"], "maxFileSizeMB": 2 },
+            { "id": "favicon_image", "type": "image", "defaultValue": "/favicon.png", "aspectRatio": "1:1", "allowedFormats": ["ico", "png"], "maxFileSizeMB": 1 },
+            { "id": "contact_email", "type": "text", "defaultValue": "hello@pitchbrands.in", "minLength": 5, "characterLimit": 50, "validationRules": "email" },
+            { "id": "contact_phone", "type": "text", "defaultValue": "+91 73030 89104", "minLength": 5, "characterLimit": 20, "validationRules": "no_html" },
+            { "id": "business_address", "type": "text", "defaultValue": "sco 211, second floor, Pitchbrands office, Omaxe World Street, Sector 79, 121101, Faridabad", "minLength": 10, "characterLimit": 200, "validationRules": "no_html" },
+            { "id": "copyright_text", "type": "text", "defaultValue": "©2024 PitchBrands. All rights reserved.", "minLength": 5, "characterLimit": 100, "validationRules": "no_html" }
+          ]
+        },
+        {
+          "name": "Social Links",
+          "fields": [
+            { "id": "social_instagram", "type": "text", "defaultValue": "https://instagram.com/pitchbrands.in", "minLength": 5, "characterLimit": 100, "validationRules": "url" },
+            { "id": "social_linkedin", "type": "text", "defaultValue": "https://www.linkedin.com/company/pitchbrands/", "minLength": 5, "characterLimit": 100, "validationRules": "url" },
+            { "id": "social_facebook", "type": "text", "defaultValue": "https://www.facebook.com/profile.php?id=61590498193297", "minLength": 5, "characterLimit": 100, "validationRules": "url" }
+          ]
+        },
+        {
+          "name": "Default SEO",
+          "fields": [
+            { "id": "seo_title", "type": "text", "defaultValue": "PitchBrands | Performance Marketing Agency for D2C Brands", "minLength": 10, "characterLimit": 70, "validationRules": "no_html" },
+            { "id": "seo_desc", "type": "text", "defaultValue": "Helping D2C & local brands grow profitably", "minLength": 10, "characterLimit": 160, "validationRules": "no_html" },
+            { "id": "seo_keywords", "type": "text", "defaultValue": "digital marketing agency, performance marketing agency", "minLength": 5, "characterLimit": 255, "validationRules": "no_html" },
+            { "id": "seo_og_image", "type": "image", "defaultValue": "/images/og.jpg", "aspectRatio": "1.91:1", "allowedFormats": ["jpg", "webp", "png"], "maxFileSizeMB": 3 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Global Navigation",
+      "sections": [
+        {
+          "name": "Navigation",
+          "fields": [
+            { "id": "nav_link_1", "type": "text", "defaultValue": "Home", "minLength": 2, "characterLimit": 15, "validationRules": "no_html" },
+            { "id": "nav_link_2", "type": "text", "defaultValue": "About", "minLength": 2, "characterLimit": 15, "validationRules": "no_html" },
+            { "id": "nav_link_3", "type": "text", "defaultValue": "Services", "minLength": 2, "characterLimit": 15, "validationRules": "no_html" },
+            { "id": "nav_link_4", "type": "text", "defaultValue": "Work", "minLength": 2, "characterLimit": 15, "validationRules": "no_html" },
+            { "id": "nav_link_5", "type": "text", "defaultValue": "Contact", "minLength": 2, "characterLimit": 15, "validationRules": "no_html" },
+            { "id": "nav_cta_btn", "type": "button", "defaultValue": { "text": "Book a competitor analysis", "link": "/contact" }, "minLength": 2, "characterLimit": 30 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Home Sections",
+      "sections": [
+        {
+          "name": "Hero",
+          "fields": [
+            { "id": "home_hero_eyebrow", "type": "text", "defaultValue": "Gen-Z–first creative + performance studio · Faridabad", "minLength": 5, "characterLimit": 70, "validationRules": "no_html" },
+            { "id": "home_hero_h1_1", "type": "text", "defaultValue": "We make brands ", "minLength": 5, "characterLimit": 30, "validationRules": "no_html" },
+            { "id": "home_hero_h1_2", "type": "text", "defaultValue": "go viral.", "minLength": 2, "characterLimit": 20, "validationRules": "no_html" },
+            { "id": "home_hero_h1_3", "type": "text", "defaultValue": "From invisible to iconic — ", "minLength": 5, "characterLimit": 40, "validationRules": "no_html" },
+            { "id": "home_hero_h1_4", "type": "text", "defaultValue": "that's the brief.", "minLength": 5, "characterLimit": 30, "validationRules": "no_html" },
+            { "id": "home_hero_sub", "type": "text", "defaultValue": "Lowkey obsessed with making brands win. We turn forgettable feeds into cultural moments — content that connects, ads that convert, and branding that sticks.", "minLength": 10, "characterLimit": 200, "validationRules": "no_html" },
+            { "id": "home_hero_btn_1", "type": "button", "defaultValue": { "text": "Book a competitor analysis", "link": "/contact" }, "minLength": 5, "characterLimit": 35 },
+            { "id": "home_hero_btn_2", "type": "button", "defaultValue": { "text": "See our work", "link": "/work" }, "minLength": 5, "characterLimit": 25 }
+          ]
+        },
+        {
+          "name": "Hero Stats",
+          "fields": [
+            { "id": "home_stat_1_num", "type": "text", "defaultValue": "40", "minLength": 1, "characterLimit": 5, "validationRules": "numeric_only" },
+            { "id": "home_stat_1_suf", "type": "text", "defaultValue": "+", "minLength": 0, "characterLimit": 2, "validationRules": "no_html" },
+            { "id": "home_stat_1_lbl", "type": "text", "defaultValue": "brands scaled & counting", "minLength": 5, "characterLimit": 40, "validationRules": "no_html" },
+            { "id": "home_stat_2_num", "type": "text", "defaultValue": "100", "minLength": 1, "characterLimit": 5, "validationRules": "numeric_only" },
+            { "id": "home_stat_2_suf", "type": "text", "defaultValue": "%", "minLength": 0, "characterLimit": 2, "validationRules": "no_html" },
+            { "id": "home_stat_2_lbl", "type": "text", "defaultValue": "transparent reporting", "minLength": 5, "characterLimit": 40, "validationRules": "no_html" }
+          ]
+        },
+        {
+          "name": "Why We Exist",
+          "fields": [
+            { "id": "home_exist_eyebrow", "type": "text", "defaultValue": "Why we exist", "minLength": 5, "characterLimit": 30, "validationRules": "no_html" },
+            { "id": "home_exist_h2_1", "type": "text", "defaultValue": "Posting isn't a strategy. ", "minLength": 5, "characterLimit": 40, "validationRules": "no_html" },
+            { "id": "home_exist_h2_2", "type": "text", "defaultValue": "Being unforgettable", "minLength": 5, "characterLimit": 40, "validationRules": "no_html" },
+            { "id": "home_exist_h2_3", "type": "text", "defaultValue": " is.", "minLength": 2, "characterLimit": 10, "validationRules": "no_html" },
+            { "id": "home_exist_lead", "type": "text", "defaultValue": "In a feed that never stops scrolling, attention is the only currency that counts...", "minLength": 20, "characterLimit": 300, "validationRules": "no_html" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Data Collections (Dynamic Arrays)",
+      "sections": [
+        {
+          "name": "Brands",
+          "fields": [
+            { "id": "data_brands", "type": "array", "itemType": "text", "defaultValue": "['Brand One', 'Studio Lumen', ...]", "minLength": 2, "characterLimit": 25, "validationRules": "no_html_array" }
+          ]
+        },
+        {
+          "name": "Creatives",
+          "fields": [
+            { "id": "data_creatives", "type": "array", "itemSchema": [
+              { "id": "t", "type": "text", "minLength": 5, "characterLimit": 40, "validationRules": "no_html" },
+              { "id": "image", "type": "image", "aspectRatio": "4:5", "allowedFormats": ["webp", "jpg"], "maxFileSizeMB": 5 }
+            ]}
+          ]
+        },
+        {
+          "name": "Services",
+          "fields": [
+            { "id": "data_services", "type": "array", "itemSchema": [
+              { "id": "title", "type": "text", "minLength": 5, "characterLimit": 40, "validationRules": "no_html" },
+              { "id": "desc", "type": "text", "minLength": 20, "characterLimit": 300, "validationRules": "no_html" },
+              { "id": "incl", "type": "array", "itemType": "text", "minLength": 5, "characterLimit": 40 }
+            ]}
+          ]
+        },
+        {
+          "name": "Funnel",
+          "fields": [
+            { "id": "data_funnel", "type": "array", "itemSchema": [
+              { "id": "t", "type": "text", "minLength": 5, "characterLimit": 40, "validationRules": "no_html" },
+              { "id": "d", "type": "text", "minLength": 20, "characterLimit": 250, "validationRules": "no_html" }
+            ]}
+          ]
+        },
+        {
+          "name": "Testimonials",
+          "fields": [
+            { "id": "data_testimonials", "type": "array", "itemSchema": [
+              { "id": "q", "type": "text", "minLength": 10, "characterLimit": 300, "validationRules": "no_html" },
+              { "id": "nm", "type": "text", "minLength": 3, "characterLimit": 50, "validationRules": "no_html" },
+              { "id": "rl", "type": "text", "minLength": 3, "characterLimit": 60, "validationRules": "no_html" }
+            ]}
+          ]
+        },
+        {
+          "name": "Case Studies",
+          "fields": [
+            { "id": "data_case_studies", "type": "array", "itemSchema": [
+              { "id": "cat", "type": "text", "minLength": 3, "characterLimit": 30, "validationRules": "no_html" },
+              { "id": "title", "type": "text", "minLength": 5, "characterLimit": 60, "validationRules": "no_html" },
+              { "id": "badge", "type": "text", "minLength": 3, "characterLimit": 30, "validationRules": "no_html" },
+              { "id": "metrics", "type": "array", "itemSchema": [
+                { "id": "value", "type": "text", "minLength": 1, "characterLimit": 10, "validationRules": "no_html" },
+                { "id": "label", "type": "text", "minLength": 3, "characterLimit": 30, "validationRules": "no_html" }
+              ]}
+            ]}
+          ]
+        }
+      ]
+    }
+  ]
+}

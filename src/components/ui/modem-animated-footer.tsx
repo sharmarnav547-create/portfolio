@@ -61,7 +61,7 @@ export const Footer = ({
                     <a
                       key={index}
                       href={link.href}
-                      className="text-zinc-500 hover:text-zinc-950 transition-colors"
+                      className="text-zinc-500 hover:text-zinc-950 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F20574] focus-visible:ring-offset-2 rounded"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -79,7 +79,7 @@ export const Footer = ({
                   {navLinks.map((link, index) => (
                     <a
                       key={index}
-                      className="hover:text-zinc-950 duration-300 hover:font-semibold"
+                      className="hover:text-zinc-950 duration-300 hover:font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F20574] focus-visible:ring-offset-2 rounded"
                       href={link.href}
                       data-route={link.href.replace('#', '')}
                     >
@@ -100,7 +100,7 @@ export const Footer = ({
                 <a
                   href={creatorUrl}
                   target="_blank"
-                  className="text-base text-zinc-500 hover:text-zinc-950 transition-colors duration-300 hover:font-medium"
+                  className="text-base text-zinc-500 hover:text-zinc-950 transition-colors duration-300 hover:font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F20574] focus-visible:ring-offset-2 rounded"
                 >
                   Crafted by {creatorName}
                 </a>
