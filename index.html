@@ -2,10 +2,21 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
+<link rel="icon" type="image/png" href="/images/logo.png" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>PitchBrands | Performance Marketing Agency for D2C Brands</title>
 <meta name="description" content="Helping D2C & local brands grow profitably" />
 <meta name="keywords" content="digital marketing agency, performance marketing agency, social media marketing, branding agency, content creation, influencer marketing, D2C marketing, Faridabad marketing agency" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://pitchbrands.in/" />
+<meta property="og:title" content="PitchBrands | Performance Marketing Agency for D2C Brands" />
+<meta property="og:description" content="Helping D2C & local brands grow profitably" />
+<meta property="og:image" content="https://pitchbrands.in/images/logo.png" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://pitchbrands.in/" />
+<meta property="twitter:title" content="PitchBrands | Performance Marketing Agency for D2C Brands" />
+<meta property="twitter:description" content="Helping D2C & local brands grow profitably" />
+<meta property="twitter:image" content="https://pitchbrands.in/images/logo.png" />
 
 <!--
   ============================================================
@@ -115,12 +126,15 @@ p{margin:0 0 1rem}
 
 /* ---------- nav ---------- */
 header.nav{position:fixed;top:0;left:0;right:0;z-index:90;transition:background .3s,box-shadow .3s,padding .3s;padding:18px 0}
-header.nav.scrolled{background:rgba(248,240,229,.82);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding:11px 0}
+header.nav.scrolled{background:rgba(255,255,255,0.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(0,0,0,0.05);padding:10px 0}
+header.nav .logo img { height: 80px; width: auto; transition: height 0.3s ease; }
+header.nav.scrolled .logo img { height: 50px; }
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
 .nav-links{display:flex;align-items:center;gap:6px}
 .nav-links a{font-weight:600;font-size:15px;color:var(--ink);padding:9px 15px;border-radius:999px;transition:color .2s,background .2s;position:relative}
 .nav-links a:hover{color:var(--mulberry)}
 .nav-links a.active{color:var(--mulberry);background:rgba(106,37,71,.08)}
+.nav-links .btn{display:none} /* hidden on desktop, shown on mobile */
 .nav-cta{display:flex;align-items:center;gap:10px}
 .burger{display:none;width:44px;height:44px;border:1.5px solid var(--line-2);border-radius:12px;background:transparent;align-items:center;justify-content:center;flex-direction:column;gap:5px}
 .burger span{width:18px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
@@ -128,11 +142,11 @@ header.nav.scrolled{background:rgba(248,240,229,.82);backdrop-filter:blur(14px);
 .burger.open span:nth-child(2){opacity:0}
 .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* ---------- pages / router ---------- */
+/* ---------- pages ---------- */
 main{padding-top:0}
-.page{display:none}
-.page.active{display:block;animation:pagein .5s var(--ease)}
-@keyframes pagein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.page{display:block;}
+/* smooth scrolling added to root */
+html { scroll-behavior: smooth; }
 
 /* ---------- reveal ---------- */
 .rv{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
@@ -217,7 +231,9 @@ main{padding-top:0}
 
 /* ---------- funnel ---------- */
 .funnel-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px, 5vw, 50px);align-items:center}
-.funnel{display:flex;flex-direction:column;gap:10px;align-items:center}
+.funnel{position:relative;display:flex;flex-direction:column;gap:10px;align-items:center}
+.funnel::before{content:"";position:absolute;top:20px;bottom:20px;left:50%;width:2px;background:var(--line);transform:translateX(-50%);z-index:0}
+.funnel .stage{position:relative;z-index:1}
 .stage{width:100%;border:none;color:#fff;padding:20px 22px;text-align:left;display:flex;align-items:center;gap:16px;transition:.3s var(--ease);position:relative;background:var(--mulberry)}
 .stage:nth-child(1){width:100%;clip-path:polygon(0 0,100% 0,94% 100%,6% 100%);background:var(--berry)}
 .stage:nth-child(2){width:88%;clip-path:polygon(0 0,100% 0,93% 100%,7% 100%);background:var(--wine)}
@@ -413,7 +429,7 @@ h1,h2,h3{font-weight:800;letter-spacing:-.025em}
 .eyebrow{color:var(--ink)} .eyebrow::before{background:var(--pink)}
 .eyebrow.on-dark{color:var(--yellow)} .eyebrow.on-dark::before{background:var(--orange)}
 .nav-links a.active{background:var(--yellow);color:var(--black)}
-header.nav.scrolled{background:rgba(242,242,242,.88)}
+header.nav.scrolled{background:rgba(20, 18, 22, 0.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(255,255,255,0.05)}
 
 /* buttons → solid pop blocks */
 .btn{border-radius:999px;font-weight:700;box-shadow:none!important}
@@ -451,14 +467,14 @@ header.nav.scrolled{background:rgba(242,242,242,.88)}
 .banner{overflow:hidden;border-block:3px solid var(--black)}
 .banner.dark{background:var(--black)} .banner.yellow{background:var(--yellow)}
 .banner.pink{background:var(--pink)} .banner.orange{background:var(--orange)}
-.banner-track{display:flex;width:max-content;align-items:center;animation:mq 28s linear infinite}
+.banner-track{display:flex;width:max-content;align-items:center;animation:mq 34s linear infinite}
 .banner:hover .banner-track{animation-play-state:paused}
 .b-it{display:flex;align-items:center;gap:24px;padding:13px 24px;white-space:nowrap}
 .b-it .lbl{font-family:var(--font-display);font-weight:800;font-size:clamp(18px,2.6vw,30px);text-transform:uppercase;letter-spacing:-.015em;line-height:1}
-.banner.dark .lbl{color:var(--white)} .banner.yellow .lbl{color:var(--black)}
-.banner.pink .lbl,.banner.orange .lbl{color:var(--white)}
+.banner.dark .lbl{color:var(--cream-2)} .banner.yellow .lbl{color:var(--ink)}
+.banner.pink .lbl{color:var(--wine)} .banner.orange .lbl{color:var(--ink)}
 .b-it .ast{font-size:clamp(18px,2.6vw,28px);display:inline-block;animation:spin 5s linear infinite;line-height:1}
-.banner.dark .ast{color:var(--yellow)} .banner.yellow .ast{color:var(--pink)}
+.banner.dark .ast{color:var(--yellow)} .banner.yellow .ast{color:var(--mulberry)}
 .banner.pink .ast{color:var(--yellow)} .banner.orange .ast{color:var(--black)}
 
 /* ---------- responsive ---------- */
@@ -544,6 +560,56 @@ header.nav.scrolled{background:rgba(242,242,242,.88)}
   color: rgba(28, 26, 32, 0.6) !important;
   opacity: 1;
 }
+/* ---------- interactive hover states ---------- */
+.svc-card, .cs-card, .blog-card, .tst {
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease) !important;
+}
+.svc-card:hover, .cs-card:hover, .blog-card:hover, .tst:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 16px 32px -12px rgba(42, 20, 31, 0.15) !important;
+}
+.btn {
+  transition: transform 0.2s var(--ease), opacity 0.2s ease, background 0.2s ease, box-shadow 0.2s ease !important;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.3) !important;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.more { transition: transform 0.2s ease; display: inline-block; }
+.svc-card:hover .more { transform: translateX(4px); }
+/* ---------- scroll to top ---------- */
+.scroll-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), background 0.2s;
+  z-index: 80;
+}
+.scroll-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.scroll-to-top:hover {
+  background: var(--mulberry);
+}
 </style>
 </head>
 <body>
@@ -553,19 +619,18 @@ header.nav.scrolled{background:rgba(242,242,242,.88)}
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a class="logo" href="#" data-route="home" aria-label="PitchBrands Home">
-  <img src="/images/logo.png" alt="PitchBrands Logo" style="height:80px;width:auto;">
+    <a class="logo" href="#home" aria-label="PitchBrands Home">
+  <img src="/images/logo.png" alt="PitchBrands Logo">
 </a>
     <nav class="nav-links" id="navlinks" aria-label="Primary">
-      <a data-route="home" class="active">Home</a>
-      <a data-route="about">About</a>
-      <a data-route="services">Services</a>
-      <a data-route="work">Work</a>
-      <a data-route="contact">Contact</a>
-      <button class="btn btn-primary js-modal">Book analysis</button>
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
     </nav>
     <div class="nav-cta">
-      <button class="btn btn-primary js-modal">Book a competitor analysis</button>
+      <button class="btn btn-primary js-modal">Book analysis</button>
       <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -574,91 +639,78 @@ header.nav.scrolled{background:rgba(242,242,242,.88)}
 <main id="main">
 
 <!-- ===================== HOME ===================== -->
-<section class="page active" id="page-home">
+<section class="page active" id="home">
+
+  <div style="text-align: center; margin-top: 32px; position: relative; z-index: 2;">
+    <span style="font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--pb-muted); font-weight: 600;">home page</span>
+  </div>
 
   <div class="hero">
     <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
-    <div class="wrap hero-grid">
-      <div class="hero-text" style="display:flex;flex-direction:column;align-items:center">
-        <span class="eyebrow rv in">Gen-Z–first creative + performance studio · Faridabad</span>
-        <h1 class="rv in rv-d1" style="margin-top:22px">We make brands <span class="grad-txt serif-it">go viral.</span><br>From invisible to iconic — <span class="go">that's the brief.</span></h1>
-        <p class="sub rv in rv-d2">Lowkey obsessed with making brands win. We turn forgettable feeds into cultural moments — content that connects, ads that convert, and branding that sticks.</p>
-        <div class="hero-cta rv in rv-d3">
-          <button class="btn btn-primary js-modal">Book a competitor analysis <span class="arr">↗</span></button>
-          <button class="btn btn-ghost" data-route="work">See our work</button>
-        </div>
-        <div class="hero-meta rv in rv-d4">
-          <div class="hero-stat"><div class="n" data-count="40" data-suffix="+">0</div><div class="l">brands scaled &amp; counting</div></div>
-          <div class="hero-divider"></div>
-          <div class="hero-stat"><div class="n" data-count="100" data-suffix="%">0</div><div class="l">transparent reporting</div></div>
-          <div class="hero-divider"></div>
-          <div class="hero-stat"><div class="n" data-count="5" data-suffix="">0</div><div class="l">services under one roof</div></div>
-        </div>
+    <div class="wrap" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+      <div class="hero-text">
+        <h1 class="rv in rv-d1">We make brands <span class="grad-txt serif-it">go viral.</span></h1>
+        <p class="sub rv in rv-d2">Built for brands that refuse to be background noise. We mix sharp creative with data-backed execution, so your next post isn't just pretty, it's profitable. Let's get you talked about.</p>
       </div>
-    </div>
-  </div>
-
-  <div class="marquee dark">
-    <div class="mq-track">
-      <span class="it">Branding</span><span class="it alt">Influencer Marketing</span><span class="it">Performance Ads</span><span class="it alt">Content</span><span class="it">Social Media</span><span class="it alt">Strategy</span>
-      <span class="it">Branding</span><span class="it alt">Influencer Marketing</span><span class="it">Performance Ads</span><span class="it alt">Content</span><span class="it">Social Media</span><span class="it alt">Strategy</span>
+      <div class="hero-vis rv in rv-d3" style="border: 2px dashed var(--line); border-radius: var(--r-lg); height: 450px; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.02);">
+        <span style="color: var(--pb-muted); font-weight: 600;">Illustration placeholder</span>
+      </div>
     </div>
   </div>
 
   <!-- statement -->
-  <section class="section statement">
+  <section class="section statement" style="background: var(--yellow);">
     <div class="wrap">
-      <span class="eyebrow rv">Why we exist</span>
-      <h2 class="rv rv-d1" style="margin-top:20px">Posting isn't a strategy. <span class="hl serif-it">Being unforgettable</span> is.</h2>
-      <p class="lead rv rv-d2" style="margin-top:24px">In a feed that never stops scrolling, attention is the only currency that counts. We help brands earn it — then turn it into trust, customers, and growth you can actually measure.</p>
-    </div>
-  </section>
-
-  <!-- brands -->
-  <section class="section" style="padding-top:0">
-    <div class="wrap">
-      <div class="brands-top">
-        <div>
-          <span class="eyebrow rv">Trusted by founders who get it</span>
-          <div class="brand-count rv rv-d1"><span data-count="40" data-suffix="+">0</span></div>
-          <p class="lead rv rv-d2" style="margin:0">brands have trusted us to make them impossible to ignore.</p>
-        </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+        <span class="eyebrow rv" style="border-color: var(--black); color: var(--black);">SERVICES BANNER</span>
       </div>
-      <div class="brand-chips" id="brandChips"></div>
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px;">
+        <span style="font-weight: 600; font-size: 20px;">Why we exist -</span>
+        <a href="#about" style="color: var(--black); font-weight: 600; text-decoration: underline;">About us & Objectives</a>
+      </div>
+      <h2 class="rv rv-d1" style="font-size: clamp(36px, 6vw, 64px); max-width: 15ch; line-height: 1.1;">Posting isn't a strategy. <span style="color: var(--orange);">Being unforgettable is.</span></h2>
+      <p class="lead rv rv-d2" style="margin-top:32px; color: var(--ink);">In a feed that never sleeps, attention isn't just valuable, it's everything. And attention without strategy is just noise with better lighting. We exist to change that. PitchBrands is where bold creative meets ruthless performance, building brands that don't just show up in the feed, but own it. Because being seen is good. Being unforgettable is the business.</p>
     </div>
   </section>
 
-  <!-- creatives -->
-  <section class="creatives">
-    <div class="wrap" style="margin-bottom:34px">
-      <span class="eyebrow rv">Stuff we've made</span>
-      <h2 class="rv rv-d1" style="font-size:clamp(30px,5vw,56px);margin-top:18px;max-width:18ch">Work that <span class="serif-it" style="color:var(--gold-deep)">stops the scroll.</span></h2>
+  <!-- video section -->
+  <section class="section" style="padding-top: 60px;">
+    <div class="wrap">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <span style="font-weight: 600; color: var(--pb-muted);">Video (brands introduction)</span>
+      </div>
+      <div style="border: 2px dashed var(--line); border-radius: var(--r-lg); height: 500px; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.02); cursor: pointer;">
+        <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--black); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 32px; padding-left: 8px;">▶</div>
+      </div>
     </div>
-    <div class="cre-wrap"><div class="cre-row" id="creRow1"></div></div>
-    <div class="cre-wrap"><div class="cre-row rev" id="creRow2"></div></div>
   </section>
 
   <!-- services preview -->
-  <section class="dark-sec section">
-    <span class="blob b2" style="opacity:.18"></span>
+  <section class="section" style="background: linear-gradient(135deg, var(--orange), var(--logo-bright)); color: var(--white);">
     <div class="wrap">
-      <div class="sec-head rv">
-        <span class="eyebrow on-dark">What we do</span>
-        <h2>Five ways we make you <span class="serif-it" style="color:var(--gold)">unmissable.</span></h2>
-        <p class="lead">A full-stack studio — strategy, creative, and media buying living happily under one roof.</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px;">
+        <div class="svc-vis" style="border: 2px dashed rgba(255,255,255,0.3); border-radius: var(--r-lg); min-height: 300px; display: flex; align-items: center; justify-content: center;">
+          <span style="font-weight: 600; color: rgba(255,255,255,0.7);">Illustration placeholder</span>
+        </div>
+        <div class="sec-head rv">
+          <div style="text-align: right; margin-bottom: 24px;">
+            <span class="eyebrow" style="color: rgba(255,255,255,0.9); border-color: rgba(255,255,255,0.3);">Services</span>
+          </div>
+          <h2 style="color: var(--white);">Five ways we make you <span class="serif-it" style="color: var(--yellow);">unmissable.</span></h2>
+          <p style="font-weight: 700; letter-spacing: 0.05em; font-size: 14px; margin-top: 16px; color: rgba(255,255,255,0.9);">ONE STUDIO. FIVE SERVICES. ZERO MEDIOCRITY.</p>
+          <p style="color: rgba(255,255,255,0.8); margin-top: 12px; font-size: 18px;">Five services briefly described in the tiled format</p>
+        </div>
       </div>
-      <div class="svc-grid" id="svcPreview" style="margin-top:46px"></div>
-      <div style="margin-top:34px"><button class="btn btn-gold" data-route="services">Explore all services <span class="arr">↗</span></button></div>
+      <div class="svc-grid" id="svcPreview"></div>
     </div>
   </section>
 
   <!-- funnel -->
-  <section class="section">
+  <section class="section" style="background: var(--yellow);">
     <div class="wrap">
-      <div class="sec-head center rv" style="margin-bottom:48px">
-        <span class="eyebrow">How attention becomes growth</span>
-        <h2>The PitchBrands <span class="serif-it" style="color:var(--mulberry)">funnel.</span></h2>
-        <p class="lead" style="margin-inline:auto">Every stage has a job. Hover (or tap) any stage to see how we move people from a thumb-stop to a loyal customer.</p>
+      <div class="sec-head rv" style="margin-bottom:48px">
+        <h2 style="font-size: clamp(48px, 8vw, 80px); line-height: 1; margin: 0; color: var(--black);">FUNNEL</h2>
+        <p class="lead" style="max-width: 600px; margin-top: 24px; color: var(--ink);">Every stage has a job. Hover (or tap) any stage to see how we move people from a thumb-stop to a loyal customer.</p>
       </div>
       <div class="funnel-layout rv rv-d1">
         <div class="funnel" id="funnel" role="tablist" aria-label="Marketing funnel stages"></div>
@@ -667,40 +719,54 @@ header.nav.scrolled{background:rgba(242,242,242,.88)}
     </div>
   </section>
 
-  <!-- testimonials -->
-  <section class="section" style="background:var(--peach-soft)">
+  <!-- blog section -->
+  <section class="section" style="background: var(--black); color: var(--white);">
     <div class="wrap">
-      <div class="sec-head rv"><span class="eyebrow">Receipts</span><h2>Don't take our word for it.</h2></div>
-      <div class="tst-grid" id="tstGrid" style="margin-top:42px"></div>
-    </div>
-  </section>
-
-  <!-- featured case study -->
-  <section class="section">
-    <div class="wrap">
-      <div class="sec-head rv" style="margin-bottom:38px"><span class="eyebrow">Proof of work</span><h2>One we're proud of.</h2></div>
-      <div class="feat rv rv-d1" id="featCase"></div>
-      <div style="margin-top:28px"><button class="btn btn-ghost" data-route="work">See more case studies <span class="arr">↗</span></button></div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px;">
+        <div class="blog-vis" style="border: 2px dashed rgba(255,255,255,0.3); border-radius: var(--r-lg); min-height: 300px; display: flex; align-items: center; justify-content: center;">
+          <span style="font-weight: 600; color: rgba(255,255,255,0.7);">Illustration placeholder</span>
+        </div>
+        <div class="sec-head rv" style="width: 100%; max-width: none;">
+          <div style="text-align: right; margin-bottom: 24px;">
+            <span class="eyebrow on-dark" style="color: rgba(255,255,255,0.9); border-color: rgba(255,255,255,0.3);">Blogs section</span>
+          </div>
+          <h2 style="color: var(--pink); font-size: clamp(36px, 6vw, 64px);">The Playbook.</h2>
+          <p style="font-weight: 600; font-size: 20px; margin-top: 16px; color: rgba(255,255,255,0.9);">Strategy, insights, and unfiltered takes on what's actually working in digital marketing right now.</p>
+          <p style="color: rgba(255,255,255,0.8); margin-top: 12px; font-size: 16px;">6 dynamic blogs, striking visuals</p>
+        </div>
+      </div>
+      <div class="blog-grid" id="homeBlogsRow" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;"></div>
     </div>
   </section>
 
   <!-- CTA band -->
-  <section class="section" style="padding-top:0">
+  <section class="section" style="padding: 120px 0; background: var(--white); text-align: center;">
     <div class="wrap">
-      <div class="cta-band rv">
-        <h2>The scroll <span class="gold serif-it">stops here.</span></h2>
-        <p>Let's create something worth talking about. Book a free competitor analysis and we'll show you exactly where your growth is hiding.</p>
-        <div class="row">
-          <button class="btn btn-gold js-modal">Book a competitor analysis <span class="arr">↗</span></button>
-          <button class="btn btn-ghost on-dark" data-route="contact">Start a project</button>
-        </div>
-      </div>
+      <h2 style="font-size: clamp(48px, 8vw, 96px); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 24px;">
+        <span style="color: var(--mulberry);">Ready</span> 
+        <span style="color: var(--orange);">to</span> 
+        <span style="color: var(--yellow);">go</span> 
+        <span style="color: var(--pink);">viral?</span><br>
+        <span style="color: var(--black);">Let's</span> 
+        <span style="color: var(--mulberry);">make</span> 
+        <span style="color: var(--berry);">it</span> 
+        <span style="color: var(--logo-bright);">loud.</span>
+      </h2>
+      <p style="font-size: clamp(18px, 2.5vw, 24px); color: var(--pb-muted); font-weight: 600;">Less lurking, more launching. Let's build something loud.</p>
+    </div>
+  </section>
+
+  <!-- Footer Banner -->
+  <section style="background: var(--yellow); padding: 80px 0; text-align: center;">
+    <div class="wrap">
+      <h2 style="font-size: clamp(60px, 12vw, 180px); line-height: 0.8; margin: 0; color: var(--black); font-weight: 900; letter-spacing: -0.04em;">PITCHBRANDS</h2>
+      <p style="font-size: clamp(14px, 2vw, 24px); color: var(--ink); font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; margin-top: 24px;">ALGORITHM-FLUENT STUDIO</p>
     </div>
   </section>
 </section>
 
 <!-- ===================== ABOUT ===================== -->
-<section class="page" id="page-about">
+<section class="page" id="about">
   <div class="hero" style="padding-bottom:0">
     <span class="blob b1" style="opacity:.3"></span><span class="blob b2"></span>
     <div class="wrap">
@@ -762,7 +828,7 @@ header.nav.scrolled{background:rgba(242,242,242,.88)}
         <p>You came to read about us — that means you're already thinking growth. Book a free competitor analysis and we'll show you exactly where you can win, before you spend a rupee with us.</p>
         <div class="row">
           <button class="btn btn-gold js-modal">Book a competitor analysis <span class="arr">↗</span></button>
-          <button class="btn btn-ghost on-dark" data-route="services">See what we do</button>
+          <a href="#services" class="btn btn-ghost on-dark" style="display: inline-flex; align-items: center; justify-content: center; text-decoration: none;">See what we do</a>
         </div>
       </div>
     </div>
@@ -770,7 +836,7 @@ header.nav.scrolled{background:rgba(242,242,242,.88)}
 </section>
 
 <!-- ===================== SERVICES ===================== -->
-<section class="page" id="page-services">
+<section class="page" id="services">
   <div class="hero" style="padding-bottom:0">
     <span class="blob b2"></span><span class="blob b3" style="opacity:.22"></span>
     <div class="wrap">
@@ -786,13 +852,13 @@ header.nav.scrolled{background:rgba(242,242,242,.88)}
     <div class="wrap"><div class="cta-band rv">
       <h2>Not sure where to <span class="gold serif-it">start?</span></h2>
       <p>Tell us your goal and your budget. We'll tell you the honest, no-fluff plan — even if it's not the most expensive one.</p>
-      <div class="row"><button class="btn btn-gold js-modal">Book a competitor analysis <span class="arr">↗</span></button><button class="btn btn-ghost on-dark" data-route="contact">Talk to us</button></div>
+      <div class="row"><button class="btn btn-gold js-modal">Book a competitor analysis <span class="arr">↗</span></button><a href="#contact" class="btn btn-ghost on-dark" style="display: inline-flex; align-items: center; justify-content: center; text-decoration: none;">Talk to us</a></div>
     </div></div>
   </section>
 </section>
 
 <!-- ===================== WORK (blogs + case studies) ===================== -->
-<section class="page" id="page-work">
+<section class="page" id="work">
   <div class="hero" style="padding-bottom:30px">
     <span class="blob b1" style="opacity:.28"></span>
     <div class="wrap">
@@ -831,7 +897,7 @@ header.nav.scrolled{background:rgba(242,242,242,.88)}
 </section>
 
 <!-- ===================== CONTACT ===================== -->
-<section class="page" id="page-contact">
+<section class="page" id="contact">
   <div class="hero" style="padding-bottom:30px">
     <span class="blob b2"></span><span class="blob b1" style="opacity:.26"></span>
     <div class="wrap">
@@ -953,14 +1019,10 @@ const MONO = `<svg viewBox="0 0 100 100" width="100%" height="100%" fill="none" 
 
 const DATA = {
   // REPLACE with your real client names (or logos)
-  brands: ["Brand One","Studio Lumen","Casa Verde","Northwind","Maison&Co","Pixel Pantry","Olive&Oak","Hype House","Forma","Verde Labs","Mango Republic","Nova Skin"],
+  brands: [],
 
   // REPLACE with your real creatives (label = short caption). Colors are auto.
-  creatives: [
-    {t:"Reel · F&B launch"},{t:"Ad creative · D2C"},{t:"Brand film · Fashion"},{t:"Carousel · Skincare"},
-    {t:"Static ads · Real estate"},{t:"Reel · Café opening"},{t:"Identity · Tech startup"},{t:"UGC edit · Beauty"},
-    {t:"Meme campaign · App"},{t:"Product shoot · Jewelry"},{t:"Story set · Fitness"},{t:"Thumbnail · YouTube"}
-  ],
+  creatives: [],
 
   services: [
     {n:"01",title:"Branding",desc:"Logos, identity systems, and guidelines that look expensive and feel iconic — so you're recognisable the second you show up.",incl:["Logo & identity","Brand guidelines","Messaging & tone","Visual systems"]},
@@ -986,18 +1048,16 @@ const DATA = {
   ],
 
   // REPLACE with real case studies
-  caseStudies:[
-    {cat:"Social + Content",title:"From 2k to 200k in 90 days",badge:"Beauty brand",c:"linear-gradient(135deg,var(--mulberry),var(--coral))",metrics:[["100×","follower growth"],["18%","avg engagement"],["4.2×","sales uplift"]]},
-    {cat:"Performance Ads",title:"₹1 spent, ₹6 back",badge:"D2C · Meta + Google",c:"linear-gradient(135deg,var(--wine),var(--gold))",metrics:[["6.1×","ROAS"],["-42%","cost per lead"],["3×","monthly revenue"]]},
-    {cat:"Branding",title:"A rebrand people screenshot",badge:"Tech startup",c:"linear-gradient(135deg,var(--plum-ink),var(--berry))",metrics:[["2.5×","site time"],["+38%","brand recall"],["#1","category recall"]]}
-  ],
+  caseStudies: [],
 
   // REPLACE with real blog posts
   blogs:[
-    {cat:"Playbook",title:"How to make a reel actually go viral",ex:"The 3-second rule, hook formulas, and why your first frame is everything.",c:"linear-gradient(135deg,var(--mulberry),var(--wine))"},
-    {cat:"Ads",title:"The anatomy of a scroll-stopping ad",ex:"What separates an ad that sells from an ad that's just… seen.",c:"linear-gradient(135deg,var(--coral),var(--gold))"},
-    {cat:"Branding",title:"Branding on a startup budget",ex:"You don't need a huge budget to look iconic. You need these five things.",c:"linear-gradient(135deg,var(--wine),var(--berry))"},
-    {cat:"Strategy",title:"Why vanity metrics lie to you",ex:"Likes feel good. Here's what to track if you actually want revenue.",c:"linear-gradient(135deg,var(--berry),var(--mulberry))"}
+    {cat:"Playbook",date:"Oct 12",read:"3 min read",title:"How to make a reel actually go viral",ex:"The 3-second rule, hook formulas, and why your first frame is everything.",c:"linear-gradient(135deg,var(--mulberry),var(--wine))"},
+    {cat:"Ads",date:"Oct 05",read:"4 min read",title:"The anatomy of a scroll-stopping ad",ex:"What separates an ad that sells from an ad that's just… seen.",c:"linear-gradient(135deg,var(--coral),var(--gold))"},
+    {cat:"Branding",date:"Sep 28",read:"5 min read",title:"Branding on a startup budget",ex:"You don't need a huge budget to look iconic. You need these five things.",c:"linear-gradient(135deg,var(--wine),var(--berry))"},
+    {cat:"Strategy",date:"Sep 14",read:"3 min read",title:"Why vanity metrics lie to you",ex:"Likes feel good. Here's what to track if you actually want revenue.",c:"linear-gradient(135deg,var(--berry),var(--mulberry))"},
+    {cat:"Content",date:"Sep 02",read:"4 min read",title:"UGC is dying. What's next?",ex:"Why polished authenticity is replacing raw UGC in top-performing ads.",c:"linear-gradient(135deg,var(--plum-ink),var(--wine))"},
+    {cat:"Growth",date:"Aug 20",read:"6 min read",title:"Scaling from $10k to $100k/mo",ex:"The media buying structure that actually scales without breaking.",c:"linear-gradient(135deg,var(--gold-deep),var(--coral))"}
   ],
 
   // REPLACE with real team members
@@ -1029,18 +1089,27 @@ const el=(h)=>{const t=document.createElement('template');t.innerHTML=h.trim();r
 
 // brands
 const bc=document.getElementById('brandChips');
-DATA.brands.forEach(b=>bc.appendChild(el(`<span class="brand-chip">${b}</span>`)));
+if (DATA.brands.length === 0) {
+  bc.closest('section').style.display = 'none';
+} else {
+  DATA.brands.forEach(b=>bc.appendChild(el(`<span class="brand-chip">${b}</span>`)));
+}
 
 // creatives (two rows, duplicated for seamless loop)
-function fillCre(row,list){[...list,...list].forEach((c,i)=>{
-  const col=CREATIVE_COLORS[i%CREATIVE_COLORS.length], col2=CREATIVE_COLORS[(i+2)%CREATIVE_COLORS.length];
-  row.appendChild(el(`<div class="cre" style="background:linear-gradient(140deg,${col},${col2})"><span class="tag">${c.t}</span></div>`));
-});}
-fillCre(document.getElementById('creRow1'),DATA.creatives.slice(0,6));
-fillCre(document.getElementById('creRow2'),DATA.creatives.slice(6));
+if (DATA.creatives.length === 0) {
+  const cr = document.querySelector('.creatives');
+  if (cr) cr.style.display = 'none';
+} else {
+  function fillCre(row,list){[...list,...list].forEach((c,i)=>{
+    const col=CREATIVE_COLORS[i%CREATIVE_COLORS.length], col2=CREATIVE_COLORS[(i+2)%CREATIVE_COLORS.length];
+    row.appendChild(el(`<div class="cre" style="background:linear-gradient(140deg,${col},${col2})"><span class="tag">${c.t}</span></div>`));
+  });}
+  fillCre(document.getElementById('creRow1'),DATA.creatives.slice(0,6));
+  fillCre(document.getElementById('creRow2'),DATA.creatives.slice(6));
+}
 
 // services
-function svcCard(s,link){return `<div class="svc-card${link?' rv':''}"><span class="svc-num">${s.n}</span><h3>${s.title}</h3><p>${s.desc}</p><ul class="incl">${s.incl.map(i=>`<li>${i}</li>`).join('')}</ul>${link?`<span class="more" data-route="services">Learn more ↗</span>`:''}</div>`;}
+function svcCard(s,link){return `<div class="svc-card${link?' rv':''}"><span class="svc-num">${s.n}</span><h3>${s.title}</h3><p>${s.desc}</p><ul class="incl">${s.incl.map(i=>`<li>${i}</li>`).join('')}</ul>${link?`<a class="more" href="#services" style="text-decoration:none">Learn more ↗</a>`:''}</div>`;}
 document.getElementById('svcPreview').innerHTML=DATA.services.slice(0,3).map(s=>svcCard(s,true)).join('');
 document.getElementById('svcFull').innerHTML=DATA.services.map(s=>`<div class="svc-card rv"><span class="svc-num">${s.n}</span><h3>${s.title}</h3><p>${s.desc}</p><ul class="incl">${s.incl.map(i=>`<li>${i}</li>`).join('')}</ul></div>`).join('');
 
@@ -1059,8 +1128,12 @@ paintPanel(0);
 document.getElementById('tstGrid').innerHTML=DATA.testimonials.map(t=>`<div class="tst rv"><div class="stars">★★★★★</div><p class="q">"${t.q}"</p><div class="who"><span class="av" style="background:${t.c}">${t.nm.split(' ').map(w=>w[0]).join('').slice(0,2)}</span><span><span class="nm">${t.nm}</span><br><span class="rl">${t.rl}</span></span></div></div>`).join('');
 
 // featured case study (first one)
-const fcs=DATA.caseStudies[0];
-document.getElementById('featCase').innerHTML=`<div class="vis" style="background:${fcs.c}"><span class="ring"></span><span class="badge">${fcs.badge}</span></div><div class="body"><span class="svc-num">${fcs.cat}</span><h3>${fcs.title}</h3><div class="feat-metrics">${fcs.metrics.map(m=>`<div class="m"><div class="n">${m[0]}</div><div class="l">${m[1]}</div></div>`).join('')}</div><p style="color:var(--muted)">A placeholder snapshot of the kind of growth we build. Swap in your real story and numbers in the code.</p></div>`;
+if (DATA.caseStudies.length === 0) {
+  document.getElementById('work').style.display = 'none';
+} else {
+  const fcs=DATA.caseStudies[0];
+  document.getElementById('featCase').innerHTML=`<div class="vis" style="background:${fcs.c}"><span class="ring"></span><span class="badge">${fcs.badge}</span></div><div class="body"><span class="svc-num">${fcs.cat}</span><h3>${fcs.title}</h3><div class="feat-metrics">${fcs.metrics.map(m=>`<div class="m"><div class="n">${m[0]}</div><div class="l">${m[1]}</div></div>`).join('')}</div><p style="color:var(--muted)">A placeholder snapshot of the kind of growth we build. Swap in your real story and numbers in the code.</p></div>`;
+}
 
 // process
 document.getElementById('processList').innerHTML=DATA.process.map((p,i)=>`<div class="pstep rv"><span class="pn">0${i+1}</span><div><h3>${p.t}</h3><p>${p.d}</p></div></div>`).join('');
@@ -1070,36 +1143,46 @@ const teamRow=document.getElementById('teamRow');
 [...DATA.team,...DATA.team].forEach(m=>teamRow.appendChild(el(`<div class="tm"><div class="ph" style="background:${m.c}">${m.i}</div><div class="info"><div class="nm">${m.nm}</div><div class="rl">${m.rl}</div></div></div>`)));
 
 // blogs
-document.getElementById('blogsRow').innerHTML=DATA.blogs.map(b=>`<article class="blog-card"><div class="cv" style="background:${b.c}">${b.cat}</div><div class="bb"><span class="ct">${b.cat}</span><h3>${b.title}</h3><p>${b.ex}</p></div></article>`).join('');
+const homeBlogsRow = document.getElementById('homeBlogsRow');
+if (homeBlogsRow) {
+  homeBlogsRow.innerHTML=DATA.blogs.map(b=>`<article class="blog-card" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);"><div class="cv" style="background:${b.c}">${b.cat}</div><div class="bb"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:13px;color:rgba(255,255,255,0.6);font-weight:600;"><span class="ct" style="margin-bottom:0">${b.cat}</span><span>${b.date} · ${b.read}</span></div><h3 style="color:var(--white)">${b.title}</h3><p style="color:rgba(255,255,255,0.8)">${b.ex}</p></div></article>`).join('');
+}
+const workBlogsRow = document.getElementById('blogsRow');
+if (workBlogsRow) {
+  workBlogsRow.innerHTML=DATA.blogs.map(b=>`<article class="blog-card"><div class="cv" style="background:${b.c}">${b.cat}</div><div class="bb"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:13px;color:var(--pb-muted);font-weight:600;"><span class="ct" style="margin-bottom:0">${b.cat}</span><span>${b.date} · ${b.read}</span></div><h3>${b.title}</h3><p>${b.ex}</p></div></article>`).join('');
+}
 
 // case studies
 document.getElementById('csGrid').innerHTML=DATA.caseStudies.map(c=>`<article class="cs-card rv"><div class="cv" style="background:${c.c}"><span class="ring"></span><span class="badge">${c.badge}</span></div><div class="bb"><span class="svc-num">${c.cat}</span><h3>${c.title}</h3><div class="ms">${c.metrics.map(m=>`<div><div class="n">${m[0]}</div><div class="l">${m[1]}</div></div>`).join('')}</div></div></article>`).join('');
 
 /* =========================================================
-   ROUTER (single-page)
+   SCROLL SPY FOR NAV
    ========================================================= */
-const pages={home:'page-home',about:'page-about',services:'page-services',work:'page-work',contact:'page-contact'};
-function go(route){
-  if(!pages[route])route='home';
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById(pages[route]).classList.add('active');
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    const isActive = a.dataset.route === route;
-    a.classList.toggle('active', isActive);
-    if (isActive) {
-      a.setAttribute('aria-current', 'page');
-    } else {
-      a.removeAttribute('aria-current');
+document.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('.page');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    if (scrollY >= sectionTop - 120) {
+      current = section.getAttribute('id');
     }
   });
-  window.scrollTo({top:0,behavior:'instant' in window?'instant':'auto'});
-  closeMenu();
-  requestAnimationFrame(()=>{revealScan();if(route==='work')requestAnimationFrame(updateWork);});
-  history.replaceState(null,'',route==='home'?'#':'#'+route);
-}
+
+  navLinks.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === `#${current}`) {
+      a.classList.add('active');
+    }
+  });
+});
+
 document.addEventListener('click',e=>{
-  const r=e.target.closest('[data-route]');
-  if(r){e.preventDefault();go(r.dataset.route);}
+  const a = e.target.closest('.nav-links a, a[href^="#"]');
+  if(a && a.getAttribute('href').startsWith('#')){
+    closeMenu();
+  }
 });
 
 /* =========================================================
@@ -1126,7 +1209,14 @@ function countUp(node){
    NAV scroll state + mobile menu
    ========================================================= */
 const nav=document.getElementById('nav');
-const onScroll=()=>{nav.classList.toggle('scrolled',window.scrollY>20);};
+const onScroll=()=>{
+  nav.classList.toggle('scrolled',window.scrollY>20);
+  const stBtn=document.getElementById('scrollTopBtn');
+  if(stBtn) {
+    const scrollMax = document.documentElement.scrollHeight - window.innerHeight;
+    stBtn.classList.toggle('visible', window.scrollY > scrollMax * 0.5);
+  }
+};
 const burger=document.getElementById('burger'),navlinks=document.getElementById('navlinks');
 function closeMenu(){navlinks.classList.remove('open');burger.classList.remove('open');burger.setAttribute('aria-expanded','false');}
 burger.addEventListener('click',()=>{const o=navlinks.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',o);});
@@ -1146,7 +1236,7 @@ function cacheWorkDimensions() {
 }
 
 function updateWork(){
-  if(!document.getElementById('page-work').classList.contains('active')||workReduced)return;
+  if(workReduced || !blogStage)return;
   const rect=blogStage.getBoundingClientRect();
   const total=blogStageHeight-windowHeight;
   let p=total>0?(-rect.top)/total:0; p=Math.max(0,Math.min(1,p));
@@ -1177,7 +1267,7 @@ updateProgress();
    ========================================================= */
 const modal=document.getElementById('modal'),modalClose=document.getElementById('modalClose');
 let modalShownAuto=false,lastFocus=null;
-function openModal(){lastFocus=document.activeElement;modal.classList.add('show');document.body.style.overflow='hidden';setTimeout(()=>document.getElementById('m-name').focus(),60);}
+function openModal(){lastFocus=document.activeElement;modal.classList.add('show');document.body.style.overflow='hidden';}
 function closeModal(){modal.classList.remove('show');document.body.style.overflow='';if(lastFocus)lastFocus.focus();}
 document.addEventListener('click',e=>{if(e.target.closest('.js-modal')){e.preventDefault();openModal();}});
 modalClose.addEventListener('click',closeModal);
@@ -1248,12 +1338,18 @@ function validateField(input) {
 
 function setupRealtimeValidation(form) {
   form.querySelectorAll('input, select, textarea').forEach(input => {
-    input.addEventListener('blur', () => {
-      validateField(input);
-    });
+    let interacted = false;
     input.addEventListener('input', () => {
+      interacted = true;
       const fieldContainer = input.closest('.field');
       if (fieldContainer && fieldContainer.classList.contains('has-error')) {
+        validateField(input);
+      }
+    });
+    input.addEventListener('blur', () => {
+      // Only validate on blur if the user has actually interacted with the field
+      // or if they've left some text in it (like autofill).
+      if (interacted || input.value.trim()) {
         validateField(input);
       }
     });
@@ -1348,5 +1444,6 @@ go((location.hash||'#home').replace('#',''));
 revealScan();
 </script>
   <script type="module" src="/src/main.jsx"></script>
+  <button class="scroll-to-top" id="scrollTopBtn" aria-label="Scroll to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
 </body>
 </html>

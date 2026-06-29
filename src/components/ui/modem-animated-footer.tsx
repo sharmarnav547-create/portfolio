@@ -81,7 +81,6 @@ export const Footer = ({
                       key={index}
                       className="hover:text-zinc-950 duration-300 hover:font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F20574] focus-visible:ring-offset-2 rounded"
                       href={link.href}
-                      data-route={link.href.replace('#', '')}
                     >
                       {link.label}
                     </a>
